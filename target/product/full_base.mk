@@ -42,7 +42,7 @@ PRODUCT_VENDOR_PROPERTIES := \
     ro.config.notification_sound?=pixiedust.ogg
 
 # Put en_US first in the list, so make it default.
-PRODUCT_LOCALES := en_US
+PRODUCT_LOCALES := zh_CN
 
 # Get some sounds
 ifeq ($(LINEAGE_BUILD),)
