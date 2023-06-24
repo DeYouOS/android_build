@@ -37,3 +37,16 @@ input and prints a C structure to standard output:
 
 This is called by build/make/core/Makefile to incorporate the OTA signing keys
 into the recovery image.
+
+
+~/android/development/tools/make_key testkey       '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key platform      '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key shared        '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key media         '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key cts_uicc_2021 '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key bluetooth '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key networkstack '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key sdk_sandbox '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+~/android/development/tools/make_key verity '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
+
+~/android/out/host/linux-x86/bin/generate_verity_key -convert verity.x509.pem verity_key
