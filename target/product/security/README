@@ -50,3 +50,19 @@ into the recovery image.
 ~/android/development/tools/make_key verity '/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
 
 ~/android/out/host/linux-x86/bin/generate_verity_key -convert verity.x509.pem verity_key
+
+1、编译android源码。
+
+2、cd build/target/product/security/ 
+
+3、执行 openssl pkcs8 -inform DER -nocrypt -in platform.pk8 -out platform.pem
+
+生成platform.pem文件
+
+4、执行 openssl pkcs12 -export -in platform.x509.pem -out platform.p12 -inkey platform.pem -password pass:huld123 -name huld
+
+生成platform.p12文件，其中huld 为alias名（app添加签名要用到），huld123 为密码。
+
+5、执行 keytool -importkeystore -deststorepass huld123 -destkeystore platform.jks -srckeystore platform.p12 -srcstoretype PKCS12 -srcstorepass huld123
+
+生成platform.jks （app打签名最终用到的文件），其中-deststorepass huld123设置的是这个签名的密码，上面指令中的-src*的其他参数都是从前面两个指令中生成的。
